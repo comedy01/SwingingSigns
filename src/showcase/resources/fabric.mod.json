@@ -1,0 +1,20 @@
+{
+	"schemaVersion": 1,
+	"id": "swingingsigns-showcase",
+	"version": "1.0.0",
+	"name": "Swinging Signs showcase",
+	"description": "Development-only film director for Swinging Signs' gallery video. Not shipped.",
+	"license": "MIT",
+	"environment": "client",
+	"entrypoints": {
+		"client": [
+			"dev.swingingsigns.showcase.SwingingSignsShowcaseFabric"
+		]
+	},
+	"depends": {
+		"swingingsigns": "*"
+	},
+	"mixins": [
+		"swingingsigns_showcase.mixins.json"
+	]
+}

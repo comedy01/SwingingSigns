@@ -1,0 +1,27 @@
+modLoader="javafml"
+loaderVersion="[47,)"
+license="MIT"
+issueTrackerURL="https://github.com/comedy01/SwingingSigns/issues"
+
+[[mods]]
+modId="swingingsigns"
+version="${version}"
+displayName="Swinging Hanging Signs"
+displayURL="https://github.com/comedy01/SwingingSigns"
+logoFile="assets/swingingsigns/icon128.png"
+authors="comedy01"
+description='''Hanging signs sway in the wind, swing harder in storms, and get pushed when players, mobs, items or minecarts move past them, then slowly settle again. Client-side and visual only.'''
+
+[[dependencies.swingingsigns]]
+modId="forge"
+mandatory=true
+versionRange="${forge_range}"
+ordering="NONE"
+side="CLIENT"
+
+[[dependencies.swingingsigns]]
+modId="minecraft"
+mandatory=true
+versionRange="${mc_range}"
+ordering="NONE"
+side="CLIENT"

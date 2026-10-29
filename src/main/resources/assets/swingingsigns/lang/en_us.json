@@ -1,0 +1,15 @@
+{
+  "swingingsigns.options.title": "Swinging Hanging Signs",
+  "swingingsigns.options.enabled": "Swinging Signs",
+  "swingingsigns.options.enabled.tooltip": "Turn all sign movement on or off. When it is off, every hanging sign hangs still like in vanilla.",
+  "swingingsigns.options.wall": "Wall Signs",
+  "swingingsigns.options.wall.tooltip": "Let signs hung from a wall bracket swing too. Turn it off to keep them still.",
+  "swingingsigns.options.wind": "Wind",
+  "swingingsigns.options.wind.tooltip": "How much signs sway on their own. At 0% they only move when something pushes them.",
+  "swingingsigns.options.push": "Push",
+  "swingingsigns.options.push.tooltip": "How hard players, mobs, items and minecarts push the signs they pass.",
+  "swingingsigns.options.weather": "Weather",
+  "swingingsigns.options.weather.tooltip": "Signs swing more in rain and much more in a thunderstorm.",
+  "swingingsigns.options.reset": "Reset to Defaults",
+  "swingingsigns.options.reset.tooltip": "Put every setting back to how it was when you installed Swinging Hanging Signs."
+}

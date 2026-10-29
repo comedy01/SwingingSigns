@@ -1,0 +1,42 @@
+{
+	"schemaVersion": 1,
+	"id": "swingingsigns",
+	"version": "${version}",
+	"name": "Swinging Hanging Signs",
+	"description": "Hanging signs sway in the wind, swing harder in storms, and get pushed when players, mobs, items or minecarts move past them, then slowly settle again. Client-side and visual only.",
+	"icon": {
+		"16": "assets/swingingsigns/icon16.png",
+		"32": "assets/swingingsigns/icon32.png",
+		"128": "assets/swingingsigns/icon128.png"
+	},
+	"authors": [
+		"comedy01"
+	],
+	"license": "MIT",
+	"contact": {
+		"homepage": "https://github.com/comedy01/SwingingSigns",
+		"sources": "https://github.com/comedy01/SwingingSigns",
+		"issues": "https://github.com/comedy01/SwingingSigns/issues"
+	},
+	"environment": "client",
+	"entrypoints": {
+		"client": [
+			"dev.swingingsigns.fabric.SwingingSignsFabric"
+		],
+		"modmenu": [
+			"dev.swingingsigns.fabric.SwingingSignsModMenu"
+		]
+	},
+	"mixins": [
+		"swingingsigns.mixins.json"
+	],
+	"depends": {
+		"fabricloader": ">=0.15.0",
+		"fabric-api": "*",
+		"minecraft": "${range}",
+		"java": ">=${java_version}"
+	},
+	"suggests": {
+		"modmenu": "*"
+	}
+}

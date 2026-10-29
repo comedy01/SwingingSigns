@@ -1,0 +1,20 @@
+{
+	"schemaVersion": 1,
+	"id": "swingingsigns-selftest",
+	"version": "1.0.0",
+	"name": "SwingingSigns self test",
+	"description": "Development-only in-world checks for SwingingSigns. Not shipped.",
+	"license": "MIT",
+	"environment": "client",
+	"entrypoints": {
+		"client": [
+			"dev.swingingsigns.selftest.fabric.SwingingSignsSelfTestFabric"
+		]
+	},
+	"depends": {
+		"swingingsigns": "*"
+	},
+	"mixins": [
+		"swingingsigns_selftest.mixins.json"
+	]
+}

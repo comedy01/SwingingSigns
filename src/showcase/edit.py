@@ -19,12 +19,10 @@ SHOTS = ["01-arrival", "03-close", "05-through", "06-storm", "07-outro"]
 SKIP = {"01-arrival": 3.5, "06-storm": 2.0}
 CUT = {"01-arrival": 1.5, "03-close": 1.5, "05-through": 3.0}
 
-
 def duration(path):
     out = subprocess.run([FF, "-i", path], capture_output=True, text=True).stderr
     h, m, s = out.split("Duration: ")[1].split(",")[0].split(":")
     return int(h) * 3600 + int(m) * 60 + float(s)
-
 
 lengths = [duration(os.path.join(CLIPS, s + ".mp4")) - SKIP.get(s, 0.0) - CUT.get(s, 0.0) for s in SHOTS]
 starts = []
@@ -39,12 +37,10 @@ print("shots start at", [round(s, 2) for s in starts], "total", round(TOTAL, 2))
 N = int(TOTAL * RATE) + RATE
 mix = np.zeros((N, 2), dtype=np.float32)
 
-
 def load(name):
     raw = subprocess.run([FF, "-loglevel", "error", "-i", os.path.join(SOUNDS, name + ".ogg"), "-f", "f32le", "-ac", "2",
                           "-ar", str(RATE), "-"], capture_output=True).stdout
     return np.frombuffer(raw, dtype=np.float32).reshape(-1, 2).copy()
-
 
 def loop(sound, offset=0.0):
     reps = N // len(sound) + 2
@@ -52,11 +48,9 @@ def loop(sound, offset=0.0):
     skip = int(offset * RATE) % len(sound)
     return whole[skip:skip + N]
 
-
 def envelope(points):
     times = np.arange(N) / RATE
     return np.interp(times, [p[0] for p in points], [p[1] for p in points]).astype(np.float32)[:, None]
-
 
 def band(sound, low, high):
     spectrum = np.fft.rfft(sound, axis=0)
@@ -67,7 +61,6 @@ def band(sound, low, high):
     spectrum *= gain[:, None]
     return np.fft.irfft(spectrum, n=len(sound), axis=0).astype(np.float32)
 
-
 def place(sound, at, gain=1.0, pan=0.0):
     i = int(at * RATE)
     if i >= N:
@@ -75,7 +68,6 @@ def place(sound, at, gain=1.0, pan=0.0):
     piece = sound[: N - i] * gain
     piece = piece * np.array([1.0 - max(0.0, pan), 1.0 + min(0.0, pan)], dtype=np.float32)
     mix[i:i + len(piece)] += piece
-
 
 rng = np.random.default_rng(11)
 noise = rng.standard_normal((N, 2)).astype(np.float32)
